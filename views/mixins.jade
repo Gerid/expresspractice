@@ -1,0 +1,73 @@
+mixin make_post(item, is_detail)
+	.post.animated.fadeInDown
+		.post-title
+			h3
+				a(href="/test")= "posttitle"
+
+
+mixin make_pager()
+	- var prev = page.prev_link
+	- var next = page.next_link
+	.pagination
+		ul.clearfix
+				li.pre.pagbuttons
+					a.btn(role="navigation")= __('prev')
+				li.next.pagbuttons
+					a.btn(role="navigation")= __('next')
+
+mixin postList()
+	.archive
+		- var year = 0;
+		- var change = false;
+		- var firstYear = true;
+		- page.posts.each(function (item) {
+			- var itemYear = date(item.date, 'YYYY') - 0;
+			- change = year !== itemYear;
+			- year = change ? itemYear : year;
+			if change
+				if firstYear
+					| <div class="listing-title">
+					!= year
+					| </div><ul class="listing">
+					- firstYear = false;
+				else
+					| </ul><div class="listing-title">
+					!= year
+					| </div><ul class="listing">
+			
+			.listing-item
+				.listing-post
+					a(href= url_for(item.path), title= item.title)= item.title
+					div.post-time
+						span.date= date(item.date, 'MM-DD')
+		- })
+mixin make_form(title)
+		-var usr="enter your username";
+		-var pwd="enter your password";
+		.bootstrap-frm(action="" method="post") 
+			h1 用户登录
+				span Please fill all the texts in the fields.
+			label 
+				span 用户名
+				input(id="name",type="text",name="name")
+			label 
+				span 密码
+				input(id="password",type="text")
+				span &nbsp;
+				input(type="button",class="button",value="提交")
+
+mixin make_cards(item)
+		//e.g:item=({'shopname':'Lelva','description':'This is a shoes shop','img':'/img/shops/Lelva/img1'});
+		-var shopname=item.shopname;
+		.mycard
+			.mycard-header=item.shopname
+				.mycard-media
+					img(src="/images/LV.png")
+			.mycard-content=item.description 
+			.mycard-footer this is a footer
+
+
+
+
+
+

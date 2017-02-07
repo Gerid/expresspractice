@@ -1,0 +1,12 @@
+include mixins
+
+extends partial/layout
+
+block site_title
+    != "post.title"
+
+
+block content
+  .autopagerize_page_element: .content: .post-page
+    include mixins
+    +make_post(page, true)

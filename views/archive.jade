@@ -1,0 +1,12 @@
+extends partial/layout
+
+block site_title
+    !=  "归档 · "
+
+
+block content
+    .autopagerize_page_element: .content
+      .archive.animated.fadeInDown
+        ul.list-with-title
+          include mixins
+          +postList()

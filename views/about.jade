@@ -1,0 +1,11 @@
+extends partial/layout
+
+block site_title
+    != "page.title"
+
+block description
+
+block content
+  .autopagerize_page_element: .content: .post-page
+    include mixins
+    +make_form("title")

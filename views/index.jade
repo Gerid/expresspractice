@@ -3,9 +3,9 @@ extends partial/layout
 
 block content
 	.autopagerize_page_element: .content
+			
 			include mixins
-			-var i=1;
-			-for(;i<10;i++)
-				+make_cards({'shopname':'Lelva','description':'this is a shoes shop','img':'/images/shop/Lelva/img1'})
-		include mixins
-		
+			-var i=0;
+			-for(var shop in shops)
+				+make_cards({'shopname':shops[i].shopname,'description':shops[i].description,'img':shops[i].shoplogo})
+				-i++;

@@ -30,7 +30,7 @@
 // --------------------------------------------------
 .mycard .mytable-view {
     margin-bottom: 0;
-    border-top: 0;
+   
     border-bottom: 0;
     border-radius: 6px;
     // Rounding first divider on carded lists and remove border on the top
@@ -61,7 +61,12 @@
     }
 }
 
-
+.mycard .mycard-header .avatar{
+	float: left;
+	width: 32px;
+	height: 32px;
+	border-radius: 300px;
+}
 .mycard-header,
 .mycard-footer {
     min-height: 44px;
@@ -135,7 +140,7 @@
 
 .mycard-content {
     position: relative;
-    font-size: 14px;
+    font-size: 14px
 }
     
 .mycard-content-inner {
@@ -153,7 +158,9 @@
 .mycard-header.mycard-media {
     display: block;
     padding: 10px;
-
+    margin-left: 5%;
+    width:5%;
+    height: 8%;
     .mymedia-body{
         margin-bottom: 0;
         margin-left:44px;

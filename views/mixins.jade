@@ -59,15 +59,32 @@ mixin make_form(title)
 mixin make_cards(item)
 		//e.g:item=({'shopname':'Lelva','description':'This is a shoes shop','img':'/img/shops/Lelva/img1'});
 		-var shopname=item.shopname;
+		-var src=item.img;
 		.mycard
-			.mycard-header=item.shopname
-				.mycard-media
-					img(src="/images/LV.png")
-			.mycard-content=item.description 
-			.mycard-footer this is a footer
-
-
-
+			.mycard-header(style={color: 'red'})
+				.avatar
+					img(src=src)
+				
+			.mycard-content
+			.mycard-footer=item.description
+mixin create_shop()
+		form(action="/newashop" method="post" enctype="multipart/form-data" class="bootstrap-frm")
+			h1 创建商铺
+				span 请在下面的表单中填写商铺的详细信息
+			label
+				span 商铺名
+				input(type="text",name="name")
+			label
+				span 上传商标
+				input(type="file" name="logo")
+			label
+				span 商铺介绍
+			textarea(name="description")
+			label
+				span
+				input(type="submit" class="button" value="提交")
+			
+		
 
 
 

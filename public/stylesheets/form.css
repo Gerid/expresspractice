@@ -29,8 +29,14 @@ font-size: 11px;
 display: block;
 margin: 0px 0px 5px;
 }
+.bootstrap-frm .span2{
+display: block;
+}
+.bootstrap-frm label>.span2 {
+display: block;
+}
 .bootstrap-frm label>span {
-float: left;
+float:left;
 width: 20%;
 text-align: right;
 padding-right: 10px;

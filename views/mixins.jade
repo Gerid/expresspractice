@@ -44,17 +44,17 @@ mixin postList()
 mixin make_form(title)
 		-var usr="enter your username";
 		-var pwd="enter your password";
-		.bootstrap-frm(action="" method="post") 
+		form(action="/login" class="bootstrap-frm" method="post") 
 			h1 用户登录
 				span Please fill all the texts in the fields.
 			label 
 				span 用户名
-				input(id="name",type="text",name="name")
+				input(id="name",type="text",name="accountID")
 			label 
 				span 密码
-				input(id="password",type="text")
+				input(id="password",type="text",name="pwd")
 				span &nbsp;
-				input(type="button",class="button",value="提交")
+				input(type="submit",class="button",value="提交")
 
 mixin make_cards(item)
 		//e.g:item=({'shopname':'Lelva','description':'This is a shoes shop','img':'/img/shops/Lelva/img1'});

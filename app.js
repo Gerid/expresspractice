@@ -4,9 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var identify = require('./identify');
 var index = require('./routes/index');
 var test = require('./routes/test');
+//session set
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var identityKey = 'skey';
+
 
 var app = express();
 
@@ -22,8 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/tmp',express.static(path.join(__dirname,'tmp')));
-app.use('/', index);
+app.use(session({
+		name: identityKey,
+		secret: 'Gerid',
+		store: new MongoStore({url:'mongodb://localhost/test-app'}),
+		saveUninitialized: false,
+		resave: false,
+	})
+	
+);
+app.use('/',identify,index);
 app.use('/test', test);
 
 // catch 404 and forward to error handler

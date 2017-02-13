@@ -1,0 +1,24 @@
+extends partial/layout
+
+
+block content
+	.autopagerize_page_element: .content
+		form(action="/adduser" method="post" class="bootstrap-frm")
+			label
+				span 用户名
+				input(type="text" name="accountID")
+			label
+				span 密码
+				input(type="text" name="pwd")
+			label
+				span 手机号
+				input(type="text" name="phone")
+			label
+				span E-MAIL
+				input(type="email" name="email")
+			label
+				span 初始金额
+				input(type="text" name="rest")
+			label
+				span
+				input(type="submit" class="button" value="提交")

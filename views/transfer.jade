@@ -1,0 +1,16 @@
+extends partial/layout
+
+
+block content
+  .autopagerize_page_element: .content
+    form(action="/transfer" method="post" class="bootstrap-frm")
+      h1
+        span 转账
+      label
+        span 对方ID
+        input(type="text" name="user2")
+      label
+        span 金额
+        input(type="text" name="total")
+      input(type="submit" class="button" value="确认")
+        

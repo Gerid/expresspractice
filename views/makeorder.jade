@@ -1,0 +1,31 @@
+extends partial/layout
+
+
+block content
+  .autopagerize_page_element: .content
+    -var i=0;
+    -var t=time;
+    form(method="post" action="/makeorder" class="bootstrap-frm")
+      label
+        span seller
+        input(type="text" name="seller")
+      label
+        span buyer
+        input(type="text" name="buyer")
+      label
+        span 商品名
+        input(type="text" name="goodname")
+      label
+        span 单价
+        input(type="text" name="price")
+      label
+        span 数量
+        input(type="text" name="amount" )
+      label
+        span 时间
+        span=t
+      span2
+      label
+        span
+        span2
+        input(type="submit" class="button" value="提交")
